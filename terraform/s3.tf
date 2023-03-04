@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "codepipeline_bucket" {
-  bucket = join("-", [replace(local.name, "_", "-"), "pipeline-support-bucket"])
+  bucket = lower(join("-", [replace(local.name, "_", "-"), "pipeline-support-bucket"]))
 }
 
 resource "aws_s3_bucket_acl" "codepipeline_bucket" {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket_versioning" "codepipeline_bucket" {
 }
 
 resource "aws_s3_bucket" "logs_bucket" {
-  bucket = join("-", [replace(local.name, "_", "-"), "logs"])
+  bucket = lower(join("-", [replace(local.name, "_", "-"), "logs"]))
 }
 
 resource "aws_s3_bucket_acl" "logs_bucket" {
@@ -48,7 +48,7 @@ resource "aws_s3_bucket_policy" "logs_bucket_policy" {
 }
 
 resource "aws_s3_bucket" "lambda_bucket" {
-  bucket = join("-", [replace(local.name, "_", "-"), "lambda-bucket"])
+  bucket = lower(join("-", [replace(local.name, "_", "-"), "lambda-bucket"]))
 }
 
 resource "aws_s3_bucket_acl" "lambda_bucket" {
@@ -86,7 +86,7 @@ data "aws_iam_policy_document" "lambda_bucket_policy" {
 }
 
 resource "aws_s3_bucket" "testdata_bucket" {
-  bucket = join("-", [replace(local.name, "_", "-"), "testdata-bucket"])
+  bucket = lower(join("-", [replace(local.name, "_", "-"), "testdata-bucket"]))
 }
 
 resource "aws_s3_bucket_acl" "testdata_bucket" {

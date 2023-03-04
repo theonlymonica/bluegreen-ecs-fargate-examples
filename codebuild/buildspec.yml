@@ -3,15 +3,11 @@ env:
   shell: bash
 
 phases:
-  install:
-    runtime-versions:
-      docker: 19
-
   pre_build:
     commands:
       - IMAGE_TAG=$CODEBUILD_BUILD_NUMBER
       - echo Logging in to Amazon ECR....
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
 
   build:
     commands:

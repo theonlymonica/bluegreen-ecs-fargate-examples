@@ -65,7 +65,7 @@ resource "aws_alb_target_group" "tg_blue" {
 
   health_check {
     interval            = "10"
-    path                = "/health"
+    path                = "/index.html"
     timeout             = "3"
     healthy_threshold   = "2"
     unhealthy_threshold = "2"
@@ -81,7 +81,7 @@ resource "aws_alb_target_group" "tg_green" {
 
   health_check {
     interval            = "10"
-    path                = "/health"
+    path                = "/index.html"
     timeout             = "3"
     healthy_threshold   = "2"
     unhealthy_threshold = "2"

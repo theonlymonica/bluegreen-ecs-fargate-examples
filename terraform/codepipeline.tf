@@ -19,7 +19,7 @@ resource "aws_codepipeline" "codepipeline" {
 
       configuration = {
         RepositoryName       = aws_codecommit_repository.repo.repository_name
-        BranchName           = aws_codecommit_repository.repo.default_branch
+        BranchName           = "main"
         PollForSourceChanges = false
       }
     }

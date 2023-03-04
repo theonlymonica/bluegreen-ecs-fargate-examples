@@ -1,4 +1,4 @@
 locals {
   name                        = "BlueGreenDemo"
-  custom_endpoint             = "http://www.example.org"
+  custom_endpoint             = "http://bluegreendemo.letsmake.cloud"
 }

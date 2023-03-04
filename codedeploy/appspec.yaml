@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "<TASK_DEFINITION>"
+        TaskDefinition: "<TASK_DEFINITION_ARN:revision>"
         LoadBalancerInfo:
           ContainerName: "BlueGreenDemo"
           ContainerPort: 80

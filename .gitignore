@@ -1,0 +1,14 @@
+.idea
+**/.terraform
+**/.terraform.lock.hcl
+**/terraform.tfstate.backup
+**/terraform.tfstate
+**/backend.tf
+**/.terraform.tfstate.lock.info
+**/terraform.tfstate.d
+**/terraform.tfstate.d/*
+**/.terraformrc
+.DS_Store
+**/acceptance_url_list.csv
+**/*.zip
+**/*.html

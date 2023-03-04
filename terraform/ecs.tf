@@ -22,6 +22,16 @@ resource "aws_ecs_task_definition" "task_definition" {
     "memory": 512,
     "name": "${local.name}",
     "networkMode": "awsvpc",
+    "healthCheck": {
+      "retries": 3,
+      "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:80/index.html || exit 1"
+      ],
+      "timeout": 5,
+      "interval": 5,
+      "startPeriod": null
+    },
     "portMappings": [
       {
         "containerPort": 80,

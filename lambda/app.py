@@ -13,7 +13,6 @@ def lambda_handler(event,context):
     endpoint = os.environ['ENDPOINT']
     bucket = os.environ['BUCKET']
     file = os.environ['FILEPATH']
-    source_file = "s3://"+os.environ['BUCKET']+"/"+os.environ['FILEPATH']
     perc_min = os.environ['ACCEPTANCE_THRESHOLD']
     
     count_200 = 0
@@ -31,7 +30,7 @@ def lambda_handler(event,context):
     
     for url_part in list1:
         code = 0
-        url = "http://"+endpoint+url_part[0]
+        url = endpoint+url_part[0]
         try:
             request = urllib.request.urlopen(url)
             code = request.code

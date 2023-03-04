@@ -24,7 +24,7 @@ resource "aws_cloudwatch_event_rule" "commit" {
       "branch"
     ],
     "referenceName": [
-      "${aws_codecommit_repository.repo.default_branch}"
+      "main"
     ]
   }
 }

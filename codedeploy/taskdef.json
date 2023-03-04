@@ -12,6 +12,16 @@
           "containerPort": 80
         }
       ],
+      "healthCheck": {
+        "retries": 3,
+        "command": [
+            "CMD-SHELL",
+            "curl -f http://localhost:80/index.html || exit 1"
+        ],
+        "timeout": 5,
+        "interval": 5,
+        "startPeriod": null
+      },
       "ulimits": [
         {
           "name": "nofile",
@@ -23,7 +33,7 @@
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/aws/ecs/BlueGreenDemo",
-          "awslogs-region": "eu-south-1",
+          "awslogs-region": "eu-west-1",
           "awslogs-stream-prefix": "nginx"
         }
       }
